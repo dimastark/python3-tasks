@@ -9,7 +9,7 @@ from threading import Thread
 
 import pygame as pg
 
-from pylife import lifearch as l
+import lifearch as l
 
 THR = None
 DELTA1 = 0
@@ -174,7 +174,7 @@ def motion_event(points, cell_size):
         y_s = int((y_pos - DELTA2) // cell_size)
         coords = COORDS(x=x_s, y=y_s)
         if points.cells.get(coords, (0, 0))[0] == 0 and no_inderr(600, x_pos, y_pos):
-            points.add(x_s, y_s)
+            points.add(l.Point(x_s, y_s))
             EDEN.text = "?(slow)"
 
 
@@ -189,7 +189,7 @@ def right_mouse_event(points, cell_size):
         if points.cells.get(coords, (0, 0))[0] == 1:
             points.remove(x_s, y_s)
         else:
-            points.add(x_s, y_s)
+            points.add(l.Point(x_s, y_s))
 
 
 def save_game(name, points):
@@ -280,7 +280,7 @@ def copy_points(line):
         x_str, y_str = cell.split(',')
         x_pos = int(x_str)
         y_pos = int(y_str)
-        dct.add(x_pos, y_pos)
+        dct.add(l.Point(x_pos, y_pos))
     return dct
 
 
