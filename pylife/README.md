@@ -16,6 +16,6 @@ There is some saved states. FIND THEM ALL!
 `python3 setup.py install`
 
 Authors: 
-    Dimastark
+    dimastark
 
 Version: 0.1 of 2015
